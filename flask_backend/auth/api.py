@@ -27,20 +27,18 @@ class AuthApiUser:
     def __str__(self):
         pass
     @staticmethod
-    def register(self, email: str, name: str) -> int:
+    def register(email: str, name: str) -> int:
         """
 
-        :param self:
         :param email: Почта
         :param name: Имя человека
         :return: id зарегистрированного пользователя
         """
         pass
     @staticmethod
-    def auth(self, email: str, password: str) -> Optional[AuthApiUser]:
+    def auth(email: str, password: str) -> Optional[AuthApiUser]:
         """
 
-        :param self:
         :param email: Почта
         :param password: Пароль
         :return: Зарегистрированный пользователь или None
