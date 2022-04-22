@@ -13,6 +13,10 @@ class AuthApiUser:
         pass
     def get_token(self) -> str:
         pass
+    def __bool__(self):
+        return self.is_authorized()
+    def __str__(self):
+        pass
     @staticmethod
     def register(self, email: str) -> int:
         pass
