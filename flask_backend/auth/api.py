@@ -27,11 +27,12 @@ class AuthApiUser:
     def __str__(self):
         pass
     @staticmethod
-    def register(self, email: str) -> int:
+    def register(self, email: str, name: str) -> int:
         """
 
         :param self:
         :param email: Почта
+        :param name: Имя человека
         :return: id зарегистрированного пользователя
         """
         pass
