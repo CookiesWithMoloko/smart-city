@@ -10,6 +10,8 @@ class AuthApiUser:
         :param token: Токен авторизации
         """
         pass
+    def get_full_info(self) -> dict:
+        pass
     def is_authorized(self) -> bool:
         pass
     def is_admin(self) -> bool:
