@@ -1,9 +1,14 @@
+from typing import Optional
 class AuthApiUser:
     pass
 
 
 class AuthApiUser:
     def __init__(self, token: str):
+        """
+
+        :param token: Токен авторизации
+        """
         pass
     def is_authorized(self) -> bool:
         pass
@@ -12,6 +17,10 @@ class AuthApiUser:
     def get_group(self) -> int:
         pass
     def get_token(self) -> str:
+        """
+
+        :return: Токен авторизации
+        """
         pass
     def __bool__(self):
         return self.is_authorized()
@@ -19,7 +28,20 @@ class AuthApiUser:
         pass
     @staticmethod
     def register(self, email: str) -> int:
+        """
+
+        :param self:
+        :param email: Почта
+        :return: id зарегистрированного пользователя
+        """
         pass
     @staticmethod
-    def auth(self, email: str, password: str) -> AuthApiUser:
+    def auth(self, email: str, password: str) -> Optional[AuthApiUser]:
+        """
+
+        :param self:
+        :param email: Почта
+        :param password: Пароль
+        :return: Зарегистрированный пользователь или None
+        """
         pass
