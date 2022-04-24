@@ -6,5 +6,5 @@ def edit_check():
     check_id = request.args.get('check_id')
     name = request.args.get('name')
     group = request.args.get('group')
-    
+
 
