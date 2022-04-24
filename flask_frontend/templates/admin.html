@@ -1,0 +1,112 @@
+{% extends 'main.html' %}
+{% block title %}
+    Статистика
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='admin.css')}}">
+{% endblock %}
+{% block tree %}
+    <b>Главная</b> / Создание, редактирование и отслеживание задач
+{% endblock %}
+{% block content %}
+    <div class="admin-panel">
+        <div class="admin-panel-header">
+            Текущие задачи
+        </div>
+        <div class="admin-panel-content">
+            <button class="admin-panel-add" onclick="toggle_popup();">Добавить задачу</button>
+        </div>
+    </div>
+    {% for task in tasks %}
+    <div class="task_block">
+        <a class="task_block_header" href="#" onclick="open_task(this);">
+            <img class="more-icon task" src="{{ url_for('static', filename='more.svg') }}" alt="">
+            {{ task['name'] }}
+            <span class="edit-block">
+                <img class="edit-icon" src="{{ url_for('static', filename='edit.svg') }}" alt="">
+                Редактировать
+            </span>
+        </a>
+        <ul class="events_list">
+            {% for event in task.events %}
+            <li>
+                <a href="#" onclick="open_event(this);">
+                    <img class="more-icon event" src="{{ url_for('static', filename='more.svg') }}" alt="">
+                    {{ event['name'] }}
+                    <span class="edit-block">
+                        <img class="edit-icon" src="{{ url_for('static', filename='edit.svg') }}" alt="">
+                        Редактировать
+                    </span>
+                </a>
+                <table class="checkpoints_list">
+                    <tr class="table_row">
+                        <th>Задачи</th>
+                        <th>Исполнитель</th>
+                        <th>Дата начала</th>
+                        <th>Дата завершения</th>
+                        <th>Статус</th>
+                        <th>Прикрепить файлы</th>
+                    </tr>
+                    {% for check in event['checkpoints'] %}
+                    <tr class="table_row" check_id="{{ check['id'] }}">
+                        <td contenteditable="true">{{ check['name'] }}</td>
+                        <td contenteditable="true">{{ check['group_name'] }}</td>
+                        <td contenteditable="true">{{ check['start'] }}</td>
+                        <td contenteditable="true">{{ check['end'] }}</td>
+                        <td contenteditable="true">В разработке</td>
+                        <td><a href="">Прикрепить вложения</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+    <div class="popup">
+        <div class="background">
+            <div class="popup-content">
+                <div class="popup-header">
+                    <span>Добавление задачи</span>
+                    <a href="#" onclick="toggle_popup();">✖</a>
+                </div>
+                <form method="post" action="{{ url_for('.add_task') }}" class="popup-form">
+                    <div class="leftbar">
+                        <label for="">
+                            <span>Наименование мероприятия</span>
+                            <input required name="task" type="text">
+                        </label>
+                        <label for="">
+                            <span>Наименование задачи</span>
+                            <input required name="event" type="text">
+                        </label>
+                        <label for="">
+                            <span>Исполнитель</span>
+                            <input required name="group" type="text">
+                        </label>
+                        <div class="popup-date">
+                            <span>Период</span>
+                            <div>
+                                от
+                                <input name="start" required type="date">
+                                до
+                                <input name="end" required type="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rightbar">
+                        <span>Описание задачи</span>
+                        <textarea required name="checkpoint" id=""></textarea>
+                    </div>
+                    <div class="popup-footer">
+                        <input type="submit" value="Добавить задачу">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+{% endblock %}

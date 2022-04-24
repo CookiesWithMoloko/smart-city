@@ -4,11 +4,15 @@
 {% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='agency.css')}}">
 {% endblock %}
 {% block tree %}
-    <b>Главная</b> / Статистика
+    <b>Главная</b> / Поставленные задачи
 {% endblock %}
 {% block content %}
+    <div class="link-tree agency container">
+        <b>Текущие задачи </b> / {{ name }} / {{ group_name }}
+    </div>
     {% for task in tasks %}
     <div class="task_block">
         <a class="task_block_header" href="#" onclick="open_task(this);">
@@ -26,13 +30,19 @@
                     <tr class="table_row">
                         <th>Задачи</th>
                         <th>Исполнитель</th>
-                        <th>Обратная связь</th>
+                        <th>Дата начала</th>
+                        <th>Дата завершения</th>
+                        <th>Статус</th>
+                        <th>Прикрепить файлы</th>
                     </tr>
                     {% for check in event['checkpoints'] %}
                     <tr class="table_row">
                         <td>{{ check['name'] }}</td>
                         <td>{{ check['group_name'] }}</td>
-                        <td><a href="">Оставить отклик, для помощи в решении задачи</a></td>
+                        <td>{{ check['start'] }}</td>
+                        <td>{{ check['end'] }}</td>
+                        <td>В разработке</td>
+                        <td><a href="">Прикрепить вложения</a></td>
                     </tr>
                     {% endfor %}
                 </table>

@@ -1,0 +1,127 @@
+.edit-icon{
+    --image_size: 15px;
+    width: var(--image_size);
+    height: var(--image_size);
+    margin-left: 10px;
+}
+.edit-block{
+    font-weight: 400;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+}
+.admin-panel{
+    width: 97%;
+    margin: 20px auto 0 auto;
+    background: white;
+    padding: 5px 0px 5px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+}
+.admin-panel-header{
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.admin-panel-add{
+    background: #42FF00;
+    border: 0;
+    border-radius: 5px;
+    width: 15%;
+    padding: 5px;
+    cursor: pointer ;
+}
+.admin-panel-content{
+    padding-bottom: 10px;
+}
+.popup{
+    display: none;
+}
+.popup.show{
+    display: block;
+}
+.popup .background{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    padding-top: 150px;
+    justify-content: center;
+}
+.popup .popup-content{
+    width: 70%;
+    height: max-content;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+}
+.popup-header{
+    font-weight: 700;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.popup-form{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 1fr;
+    grid-template-areas: "a b" "c c";
+}
+form label{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+form label span{
+    font-size: 13px;
+}
+form input{
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 3px;
+    padding: 2px 5px;
+}
+form label input:focus{
+    outline: none;
+}
+.popup-date{
+    margin-top: 20px;
+    font-size: 13px;
+}
+.rightbar{
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    align-items: end;
+}
+.rightbar span{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.rightbar textarea{
+    width: 90%;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 3px;
+    padding: 2px;
+    resize: vertical;
+    min-height: 150px;
+}
+.rightbar textarea:focus{
+    outline: none;
+}
+.popup-footer{
+    grid-area: c;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.popup-footer input[type=submit]{
+    background: #8D00BE;
+    color: #fff;
+    width: 25%;
+    border: 0;
+    border-radius: 5px;
+    padding: 3px;
+    cursor: pointer;
+}

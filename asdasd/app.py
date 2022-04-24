@@ -1,6 +1,6 @@
-import os
+from flask import Flask, Blueprint
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask
+import os
 
 app = Flask(__name__, static_folder='static')
 
@@ -11,5 +11,5 @@ app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 app.config['UPLOAD_FOLDER'] = '/attachments'
 app.url_map.strict_slashes = False
 app.secret_key = os.urandom(24)
-
 db = SQLAlchemy(app)
+

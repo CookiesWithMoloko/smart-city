@@ -1,0 +1,74 @@
+.task_block{
+    width: 95%;
+    margin: 20px auto 0 auto;
+}
+.task_block_header{
+    padding: 5px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    color: black;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+.events_list li{
+    margin-top: 10px;
+}
+.more-icon{
+    --image_size: 15px;
+    width: var(--image_size);
+    height: var(--image_size);
+    margin-right: 5px;
+    transform: rotate(180deg);
+    transition: 0.4s;
+}
+.task_block.show .more-icon.task{
+    transition: 0.4s;
+    transform: rotate(0deg);
+}
+li.show .more-icon.event{
+    transition: 0.4s;
+    transform: rotate(0deg);
+}
+
+ul.events_list{
+    margin-top: 10px;
+    margin-left: 20px;
+    list-style: none;
+    max-height: 0px;
+    overflow-y: hidden;
+    transition: 0.4s;
+}
+.task_block.show  ul.events_list{
+    transition: 0.4s;
+    max-height: 100vh;
+}
+.checkpoints_list{
+    width: 100%;
+    margin-top: 10px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    padding: 3px;
+    border-collapse: collapse;
+    border-radius: 5px;
+    display: none;
+}
+li.show .checkpoints_list{
+    max-height: 100vh;
+    transition: 0.4s;
+    display: table;
+}
+.table_row td,
+.table_row th{
+    padding: 5px;
+    width: calc(100% / 3);
+    border: 1px solid rgba(0, 0, 0, 0.35);
+}
+.table_row td a{
+    color: #0038FF;
+    text-decoration: underline;
+}
+

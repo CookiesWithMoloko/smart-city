@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="">Выход</a> / <a href="">Вход</a>
+        </div>
+    </header>
+    <main>
+        <ul class="nav">
+            <li><a href="{{ url_for('.index') }}">
+                <svg focusable="false" viewBox="0 0 24 24" color="white" aria-hidden="true"><path d="M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z"></path></svg>
+            </a></li>
+            <li><a href="{{ url_for('.agency') }}">
+                <svg focusable="false" viewBox="0 0 24 24" color="white" aria-hidden="true" aria-laabel="person">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                </svg>
+            </a></li>
+            <li><a href="{{ url_for('.admin') }}">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M29.4335 15.8833L17.6502 27.6667L10.5835 20.6L12.9335 18.25L17.6502 22.9667L27.0835 13.5333L29.4335 15.8833ZM6.66683 20C6.66683 16.1167 8.36683 12.6333 11.0335 10.2L15.0002 14.1667V4.16666H5.00016L8.66683 7.83332C5.40016 10.8667 3.3335 15.1833 3.3335 20C3.3335 28.65 9.91683 35.75 18.3335 36.5833V33.2167C11.7668 32.4 6.66683 26.7833 6.66683 20ZM36.6668 20C36.6668 11.35 30.0835 4.24999 21.6668 3.41666V6.78332C28.2335 7.59999 33.3335 13.2167 33.3335 20C33.3335 23.8833 31.6335 27.3667 28.9668 29.8L25.0002 25.8333V35.8333H35.0002L31.3335 32.1667C34.6002 29.1333 36.6668 24.8167 36.6668 20Z" fill="white"/>
+                </svg>
+            </a></li>
+            <li><a href="">
+                <svg focusable="false" viewBox="0 0 24 24" color="white" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path></svg>
+            </a></li>
+            <li><a href="">
+                <svg focusable="false" viewBox="0 0 24 24" color="white" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"></path></svg>
+            </a></li>
+        </ul>
+        <div class="main-content">
+            <div class="link-tree">
+                <div class="container">
+                    {% block tree %}{% endblock %}
+
+                </div>
+            </div>
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+{% block script %}{% endblock %}
+</body>
+</html>

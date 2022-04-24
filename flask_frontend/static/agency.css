@@ -1,0 +1,8 @@
+.link-tree.agency{
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    width: 95%;
+    display: flex;
+}
